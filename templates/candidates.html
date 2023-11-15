@@ -1,5 +1,13 @@
 <html>
 <head>
+    <title>DaBest Voting System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/custom.css') }}">
+    <script src="{{url_for('static', filename='/js/jquery.min.js') }}"></script>
+    <script src="{{url_for('static', filename='/js/bootstrap.min.js') }}"></script>
+
     <script type="text/javascript">
         function confirmAlert(candidate) {
             var response = confirm("You are about to vote for " + candidate);
@@ -30,17 +38,33 @@
 
 <body>
 
-    <h1>Time to Vote!</h1>
-    Please select your preferred candidate:
-    <div onclick="confirmAlert('KitKat')">
-        <img src="{{ url_for('static', filename='/images/kitkat.jpg') }}">KitKat</img>
+    <div class="jumbotron text-center">
+        <h1>Time to Vote!</h1>
     </div>
-    <div onclick="confirmAlert('Mars')">
-        <img src="{{ url_for('static', filename='/images/mars.jpg') }}">Mars</img>
+
+    <div class="text-center">
+        <h2>Please select your preferred candidate:</h2>
+        <br><br>
+        <div class="container">
+            <div class="row">
+                <div class="candidate-box col-sm-4" onclick="confirmAlert('KitKat')">
+                    <p class="candidate-label">KitKat</p>
+                    <br>
+                    <img class="candidate-img" src="{{ url_for('static', filename='/images/kitkat.jpg') }}">                    
+                </div>
+                <div class="candidate-box col-sm-4" onclick="confirmAlert('Mars')">
+                    <p class="candidate-label">Mars</p>
+                    <br>
+                    <img class="candidate-img" src="{{ url_for('static', filename='/images/mars.jpg') }}">
+                </div>
+                <div class="candidate-box col-sm-4" onclick="confirmAlert('Flake')">
+                    <p class="candidate-label">Flake</p>
+                    <br>
+                    <img class="candidate-img" src="{{ url_for('static', filename='/images/flake.jpg') }}">
+                </div>
+                <input type="hidden" id="voter_id" value="{{ voter_id }}">
+            </div>
+        </div>
     </div>
-    <div onclick="confirmAlert('Flake')">
-        <img src="{{ url_for('static', filename='/images/flake.jpg') }}">Flake</img>
-    </div>
-    <input type="hidden" id="voter_id" value="{{ voter_id }}">
 </body>
 </html>

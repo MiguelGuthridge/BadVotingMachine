@@ -1,5 +1,12 @@
 <html>
 <head>
+    <title>DaBest Voting System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/bootstrap.min.css') }}">
+    <script src="{{url_for('static', filename='/js/jquery.min.js') }}"></script>
+    <script src="{{url_for('static', filename='/js/bootstrap.min.js') }}"></script>
+
     <script type="text/javascript">
         function culminate() {
             fetch('/culminate', {
@@ -19,14 +26,18 @@
 </head>
 
 <body>
-    <h1>Welcome!</h1>
-    Please enter your voter ID:
-    <form method="POST">
-        <input type=text name="voter_id">
-        <input type="submit" value="Send"/>
-    </form>
+    <div class="jumbotron text-center">
+        <h1>Welcome!</h1>
+    </div>
 
-    <button style="background: transparent; border: none !important; font-size:0; height:50px;
-        width:200px;" onclick="culminate()">Return home</button>
+    <div class="text-center">
+        Please enter your voter ID:
+        <form method="POST">
+            <input type=text name="voter_id">
+            <input type="submit" value="Submit"/>
+        </form>
+
+        <button style="background: transparent; border: none !important; font-size:0; height:50px; width:200px;" onclick="culminate()">Return home</button>
+    </div>
 </body>
 </html>

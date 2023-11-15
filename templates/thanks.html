@@ -1,17 +1,27 @@
 <html>
 <head>
-
+    <title>DaBest Voting System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/bootstrap.min.css') }}">
+    <script src="{{url_for('static', filename='/js/jquery.min.js') }}"></script>
+    <script src="{{url_for('static', filename='/js/bootstrap.min.js') }}"></script>
 </head>
 
 <body>
-    <h1>Thanks!</h1>
-    Congrats on your participation in democracy.
-    <br>
-    An election official will be here to reset the machine. Pls have a sausage.
-    <br>
-    <img src="{{ url_for('static', filename='/images/democracymanifest.jpg') }}" />
-    <br>
-    <button style="background: transparent; border: none !important; font-size:0; height:50px;
-        width:200px;" onclick="document.location='/'">Return home</button>
+    <div class="jumbotron text-center">
+        <h1>Thanks!</h1>
+    </div>
+
+    <div class="text-center">
+        Congrats on your participation in democracy.
+        <br>
+        An election official will be here to reset the machine. Pls have a sausage.
+        <br>
+        <img src="{{ url_for('static', filename='/images/democracymanifest.jpg') }}" />
+        <br>
+        <button style="background: transparent; border: none !important; font-size:0; height:50px;
+            width:200px;" onclick="document.location='/'">Return home</button>
+    </div>
 </body>
 </html>
