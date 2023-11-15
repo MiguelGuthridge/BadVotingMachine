@@ -1,6 +1,32 @@
-<h1>haas - http as a service</h1>
-Use this service to access kb.quoccabank.com
-<form method="POST">
-    <textarea cols="100" rows="30" name="requestBox"></textarea>
-    <input type="submit" value="Send"/>
-</form>
+<html>
+<head>
+    <script type="text/javascript">
+        function culminate() {
+            fetch('/culminate', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({})
+            }).then(response => {
+                console.log(response.json());
+            }).catch(err => {
+                console.info(err);
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Welcome!</h1>
+    Please enter your voter ID:
+    <form method="POST">
+        <input type=text name="voter_id">
+        <input type="submit" value="Send"/>
+    </form>
+
+    <button style="background: transparent; border: none !important; font-size:0; height:50px;
+        width:200px;" onclick="culminate()">Return home</button>
+</body>
+</html>

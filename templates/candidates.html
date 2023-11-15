@@ -1,0 +1,46 @@
+<html>
+<head>
+    <script type="text/javascript">
+        function confirmAlert(candidate) {
+            var response = confirm("You are about to vote for " + candidate);
+            if (response == true) {
+                var voter_id = document.getElementById("voter_id").value;
+                submitVote(voter_id, candidate);
+                // window.location.href = "/thanks";
+            }
+        }
+
+        function submitVote(voter_id, candidate) {
+            fetch('/vote', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({"voter_id": voter_id, "candidate_name": candidate})
+            }).then(response => {
+                console.log(response.json());
+                document.location="/thanks";
+            }).catch(err => {
+                console.info(err);
+            });
+        }
+    </script>
+</head>
+
+<body>
+
+    <h1>Time to Vote!</h1>
+    Please select your preferred candidate:
+    <div onclick="confirmAlert('KitKat')">
+        <img src="{{ url_for('static', filename='/images/kitkat.jpg') }}">KitKat</img>
+    </div>
+    <div onclick="confirmAlert('Mars')">
+        <img src="{{ url_for('static', filename='/images/mars.jpg') }}">Mars</img>
+    </div>
+    <div onclick="confirmAlert('Flake')">
+        <img src="{{ url_for('static', filename='/images/flake.jpg') }}">Flake</img>
+    </div>
+    <input type="hidden" id="voter_id" value="{{ voter_id }}">
+</body>
+</html>
